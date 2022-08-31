@@ -3,9 +3,9 @@ define("base_url", "http://localhost/masterphp/proyecto-php-POO/");
 
 //controlador por defecto
 
-define("controller_default", "productoController");
+const DEFAULT_CONTROLLER = 'productoController';
 //metodo
 
-define("action_default", "index");
+const DEFAULT_ACTION = 'index';
 
 //limpiar url

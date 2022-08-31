@@ -4,9 +4,11 @@ class productoController
 {
     public function index()
     {
+        echo "<h1>Hola pagina de inicio</h1>";
         $producto = new Producto();
         $productos = $producto->getRandom(6);
         var_dump($productos->fetch_object());
+
         //renderizar una vista
         require_once 'views/producto/destacados.php';
     }

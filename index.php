@@ -15,33 +15,34 @@ function show_error()
     $error->index();
 }
 
+# Defino quien es el controlador
 if (isset($_GET['controller'])) {
     $nombre_controlador = $_GET['controller'] . 'Controller';
-} elseif (!isset($_GET['controller']) && !isset($_GET['action'])) {
-
-    $nombre_controlador = controller_default;
+} elseif (!isset($_GET['controller'])) {
+    $nombre_controlador = DEFAULT_CONTROLLER;
 } else {
-
     show_error();
     exit();
 }
 
-if (class_exists($nombre_controlador)) {
+if (!class_exists($nombre_controlador)) {
+    show_error();
+    exit();
+}
 
-    $controlador = new $nombre_controlador();
+$controlador = new $nombre_controlador();
 
+# Defino a que método/action voy a llamar
 
-    if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {
-        $action = $_GET['action'];
-        $controlador->$action();
-    } elseif (!isset($_GET['controller']) && !isset($_GET['action'])) {
-
-        $controlador =  action_default;
-    } else {
-        show_error();
-    }
+if (isset($_GET['action']) && method_exists($controlador, $_GET['action'])) {
+    $action = $_GET['action'];
+    $controlador->$action();
+} elseif (!isset($_GET['action'])) {
+    $action =  DEFAULT_ACTION;
+    $controlador->$action();
 } else {
     show_error();
 }
+
 
 require_once 'views/layout/footer.php';
