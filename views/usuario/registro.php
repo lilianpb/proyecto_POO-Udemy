@@ -1,6 +1,17 @@
 <h1>Registrarse</h1>
 
-<form action="index.php?controller=usuario&action=saveUser" method="POST">
+<?php
+if (isset($_SESSION['register']) && $_SESSION['register'] == 'complete') { ?>
+    <strong class="alert-green">Registro completado correctamente</strong>
+
+<?php } elseif (isset($_SESSION['register']) && $_SESSION['register'] == 'failed') { ?>
+    <strong class="alert-red">Registro fallido, Introduce bien los datos</strong>
+<?php } ?>
+<?php Utils::deleteSesion('register'); ?>
+
+
+<form action="<?= base_url ?>usuario/saveUser" method="POST">
+
     <label for="nombre">Nombre</label>
     <input type="text" name="nombre" placeholder="Introduzca su nombre">
 

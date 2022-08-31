@@ -1,4 +1,4 @@
-<h1>Productos destacados</h1>
+<h1>Algunos de nuestros productos destacados</h1>
 
 <div class="product">
     <img src="assets/img/camiseta.png" alt="">

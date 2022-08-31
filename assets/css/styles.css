@@ -182,6 +182,7 @@ td{
 }
 
 /*FORMS*/
+
 .form_container{
     width: 50%;
 }
@@ -212,7 +213,7 @@ select, textarea{
 }
 
 input[type="text"]:focus,
-input[type="password"]:focus,
+input[type="text"]:focus,
 input[type="email"]:focus{
     border: 1px solid #1579b5;
     color: black;
@@ -238,6 +239,11 @@ button, .button{
     color: white !important;
     text-decoration: none;
 }
+.button-small{
+    width: 120px;
+    text-align: center;
+    margin-bottom: 20px;
+}
 
 .button-small{
     width: 120px;
@@ -254,6 +260,9 @@ button, .button{
     background: red;
      border: 1px solid #cf1717;
 }
+
+
+
 
 label, 
 input[type="button"],
@@ -421,3 +430,26 @@ button{
     padding:2px;
     margin: 7px;
 }
+
+.alert-green{
+    color: green;
+}
+
+.alert-red{
+    color: red;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  tr, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  td:nth-child(even) {
+    background-color: #dddddd;
+  }
