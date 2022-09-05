@@ -8,8 +8,8 @@ if (isset($_SESSION['identity'])) : ?>
         <label for="provincia">Provincia</label>
         <input type="text" name="provincia">
 
-        <label for="ciudad">Ciudad</label>
-        <input type="text" name="ciudad">
+        <label for="localidad">Localidad</label>
+        <input type="text" name="localidad">
 
         <label for="direccion">Direccion</label>
         <input type="text" name="direccion">

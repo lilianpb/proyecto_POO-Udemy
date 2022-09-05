@@ -22,7 +22,7 @@ class categoriaController
             //conseguir producto
             $producto = new Producto();
             $producto->setCategoria_id($id);
-            $productos = $producto->getAllCategor();
+            $productos = $producto->getAllCategory();
         }
         require_once 'views/categoria/ver.php';
     }
