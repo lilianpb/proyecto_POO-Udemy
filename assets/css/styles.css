@@ -239,16 +239,12 @@ button, .button{
     color: white !important;
     text-decoration: none;
 }
-.button-small{
-    width: 120px;
-    text-align: center;
-    margin-bottom: 20px;
-}
 
 .button-small{
-    width: 120px;
+    width: 100px;
     text-align: center;
     margin-bottom: 20px;
+    margin: auto;
 }
 
 .button-gestion{
@@ -339,16 +335,17 @@ button{
     width: 100%;
 }
 
-#detail-product .image{
+ #detail-product .image{
     display: block;
     width: 47%;
     float:left;
-}
+} 
 
 #detail-product img{
     display: block;
     width: 100%;
     float:left;
+   
 }
 
 #detail-product .data{
@@ -369,6 +366,7 @@ button{
 #detail-product .button{
     width: 200px;
     text-align: center;
+    display: block;
 }
 
 
@@ -402,7 +400,7 @@ button{
 }
 
 .total-carrito{
-   width: 295px;
+   width: 320px;
    float: right; 
 }
 
