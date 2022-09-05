@@ -122,8 +122,11 @@ class Producto
     public function getAllCategory()
     {
 
-        $categorias = $this->db->query("SELECT p*, c.nombre as nombrecat FROM  productos p JOIN categorias c USING p.id = c.categoria_id ORDER BY id DESC");
-        return $categorias;
+        $sql = "SELECT p.*, c.nombre as 'catnombre' FROM  productos p JOIN categorias c ON (c.id = p.categoria_id)  WHERE p.categoria_id = {$this->getCategoria_id()} ORDER BY id DESC";
+        $productos = $this->db->query($sql);
+
+
+        return $productos;
     }
     public function getOne()
     {
@@ -173,6 +176,7 @@ class Producto
         }
         return $result;
     }
+
     public function delete()
     {
 

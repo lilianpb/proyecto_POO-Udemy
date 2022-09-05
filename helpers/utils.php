@@ -44,4 +44,30 @@ class Utils
         }
         return $stats;
     }
+
+    public static function isIdentity()
+    {
+        if (!isset($_SESSION['identity'])) {
+            header("Location:" . base_url);
+        } else {
+            return true;
+        }
+    }
+
+    public static function showEstado($status)
+    {
+        $value = 'pendiente';
+        if ($status == 'confirm') {
+            $value = 'pendiente';
+        } elseif ($status == 'preparation') {
+
+            $value = "en preparacion";
+        } elseif ($status == 'ready') {
+            $value = "preparado";
+        } elseif ($status == 'sended') {
+            $value = "enviado";
+        }
+
+        return $value;
+    }
 }

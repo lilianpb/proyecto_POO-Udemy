@@ -121,13 +121,21 @@ class Pedido
         $producto = $this->db->query("SELECT * FROM pedidos  WHERE id = '{$this->getId()}'");
         return $producto->fetch_object();
     }
-
+    //me saca el ultimo pedido de un usuario
     public function getOneByUser()
     {
         $sql = "SELECT p.id, p.coste FROM pedidos p JOIN lineas_pedidos lp ON p.id = lp.pedido_id WHERE p.usuario_id = {$this->getUsuario_id()} ORDER BY id DESC LIMIT 1";
         $pedido = $this->db->query($sql);
 
         return $pedido->fetch_object();
+    }
+
+    //me saca todos los pedido de un usuario
+    public function getAllByUser()
+    {
+        $sql = "SELECT * FROM pedidos WHERE usuario_id = {$this->getUsuario_id()} ORDER BY id DESC ";
+        $pedidos = $this->db->query($sql);
+        return $pedidos;
     }
 
     public function getProductsBypedido($id)
@@ -169,6 +177,21 @@ class Pedido
             $insert = "INSERT INTO lineas_pedidos VALUES(NULL, {$pedido_id},{$product->id},{$camisa['unidades']})";
             $save = $this->db->query($insert);
         }
+        $result = false;
+        if ($save) {
+
+            $result = true;
+        }
+        return $result;
+    }
+
+
+    public function edit()
+    {
+
+
+        $sql = "UPDATE pedidos SET estado = '{$this->getEstado()}' WHERE id = {$this->getId()}";
+        $save = $this->db->query($sql);
         $result = false;
         if ($save) {
 
